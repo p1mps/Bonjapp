@@ -54,14 +54,15 @@
                  var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
                  deviceInfo.get(function(result) {
                      
+                     
                      var data = 'deviceID: ' + getUrlVars(result,0) + '<br/>' +
-                                'phoneNumber: ' + getUrlVars(result,1) + '<br/>' +
-                                'country: ' + getUrlVars(result,2) + '<br/>' +
-                                'name: ' + getUrlVars(result,3) + '<br/>' +
-                                'simName: ' + getUrlVars(result,4) + '<br/>';
-                                'simCountry: ' + getUrlVars(result,5) + '<br/>' +
-                                'simNumber: ' + getUrlVars(result,6) + '<br/>' +
-                                
+                         'phoneNumber: ' + getUrlVars(result,1) + '<br/>' +
+                         'country: ' + getUrlVars(result,2) + '<br/>' +
+                         'name: ' + getUrlVars(result,3) + '<br/>' +
+                         'simNumber: ' + getUrlVars(result,4) + '<br/>' +
+                         'simCountry: ' + getUrlVars(result,5) + '<br/>' +
+                         'simName: ' + getUrlVars(result,6) + '<br/>';
+                     
                      jQuery('#system').html(data);
                      //navigator.contacts.find(deviceInfo, onSuccess, onError, options);
                  }, function() {
@@ -71,15 +72,17 @@
              
              
          }
-
+         
+ 
          function getUrlVars(result, index)
          {
              var str_length = result.split(",");
              var vars = str_length[index].split(",");
-             var vars = vars[0].split(":");
-             var vars = vars[1].replace(/\'/g,"");
-             if(index == 5) { var vars = vars.replace(/\}/g,""); }
-         return vars;
+             vars = vars[0].split(":");
+             vars = vars[1].replace(/\'/g,"");
+             if(index >= 5) { vars = vars.replace(/\}/g,""); }
+
+             return vars;
          }
          
         </script>
