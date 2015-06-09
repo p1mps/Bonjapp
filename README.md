@@ -1,2 +1,7 @@
 # Bonjapp
-Just an app demo with phonegap
+Just a demo app with phonegap
+
+To run it:
+```
+phonegap build; phonegap run android
+```
